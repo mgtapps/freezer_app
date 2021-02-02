@@ -1,0 +1,73 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title>Freezer Contents</title>
+
+{% endblock %}
+
+{% block body %}
+<div class = "content">
+    
+    <h4 style="text-align: center"> {{current_user.user_name}}'s Freezer</h4>
+    
+    
+            
+    {% if shelfs|length == 0 %}
+    <p style="text-align: center">To see what is in the freezer select search below!<p>
+    {% else %}
+    
+    <table class = "tcenter">
+        <tr>
+            <th>Item</th>
+            <th>Shelf</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for shelf in shelfs %}
+        
+            <tr>
+                <td>{{ shelf.content }}</td>
+                <td>{{ shelf.shelf_name }}</td>
+                <td>{{ shelf.date_created.date() }}</td>
+                <td>
+                    <a href="/delete/{{shelf.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{shelf.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    
+    </table>
+    {% endif %}
+    <form action="/freezer_contents" method='post' align = 'center'>
+        
+        <label>New item:</label>
+        <input type="text" name="content" type = "text">
+        <label>Shelf:</label>
+        <input type="text" name="shelf_name" type = text>
+        <button type="submit" class="btn btn-success">Add</button>
+        
+    
+    
+    </form>
+    <form action="/freezer_contents" method='get' align = 'center'>
+        <label>To view single shelf enter the name here:</label>
+        <input type="text" name="s" type = "text">
+        <label>To search for an item enter the item name here:</label>
+        <input type="text" name="c_t" type = "text">
+        <!--<label>Shelf:</label>
+        <input type="text" name="shelf_name" type = text>-->
+        <button type="submit" class="btn btn-success">Search</button>
+        
+    
+    
+    </form>
+    <br><br>
+    
+    
+
+
+</div>
+
+
+{% endblock %}

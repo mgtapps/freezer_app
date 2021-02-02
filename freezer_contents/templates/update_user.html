@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title>Update user</title>
+
+{% endblock %}
+
+{% block body %}
+<div class = "content">
+    <form action="/update_user/{{this_user.id}}" method='post' align = 'center'>
+        
+        <label for="pass">New Password (4 characters minimum):</label>
+    <input type="password" id="pass" name="password"
+           minlength="4" required>
+        <button type="submit" class="btn btn-success">Change</button>
+    </form>
+
+
+</div>
+
+
+{% endblock %}

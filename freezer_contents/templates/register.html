@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title>register page</title>
+{% endblock %}
+{% block body %}
+<h4 style="text-align: center">Register with a unique username and password</h4>
+<form action="/register"  method = "post">
+        <label for="username">Username:</label>
+        <input type="username" id="username" name="user_name"/>
+
+        <label for="pass">Password (4 characters minimum):</label>
+        <input type="password" id="pass" name="user_password"
+               minlength="4" required/>
+        <input type="submit" value="Add"/>
+      </form>
+    
+     
+
+{% endblock %}
+   

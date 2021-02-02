@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title>admin page</title>
+{% endblock %}
+{% block body %}
+<h4 style="text-align: center">{{current_user.user_name}}'s admin page</h4>
+{% if users|length == 0 %}
+    <p style="text-align: center">There seems to be no user!<p>
+    {% else %}
+    
+    <table class = "tcenter">
+        <tr>
+            <th>username</th>
+            
+            
+            <th>Actions</th>
+        </tr>
+        {% for this_user in users %}
+        
+            <tr>
+                <td>{{ this_user.user_name }}</td>
+                
+                
+                <td>
+                    <a href="/delete_user/{{this_user.id}}">Delete</a>
+                    <br>
+                    <a href="/update_user/{{this_user.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    
+    </table>
+    {% endif %}
+    
+     
+
+{% endblock %}
+   

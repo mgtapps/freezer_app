@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title>register page</title>
+{% endblock %}
+{% block body %}
+<h4 style="text-align: center">{{current_user.user_name}}'s Profile</h4>
+<table class = "tcenter">
+        <tr>
+            <th>Username</th>
+            
+            
+            <th>Actions</th>
+        </tr>
+        
+        
+            <tr>
+                <td>{{ current_user.user_name }}</td>
+                
+                
+                <td>
+                    
+                    <a href="/change_password">change Password</a>
+                </td>
+            </tr>
+       
+    
+    </table>
+    
+     
+
+{% endblock %}
+   
